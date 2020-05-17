@@ -16,6 +16,11 @@ app.use(bodyParser.json());
 const appRoutes = require('./routes/app');
 const usuarioRoutes = require('./routes/usuario');
 const loginRoutes = require('./routes/login');
+const hospitalRoutes = require('./routes/hospital');
+const medicoRoutes = require('./routes/medico');
+const busquedaRoutes = require('./routes/busqueda');
+const uploadRoutes = require('./routes/upload');
+const imagenesRoutes = require('./routes/imagenes');
 
 // Conección a la base de datos
 const urlDB = 'mongodb://localhost:27017/hospitalDB';
@@ -30,7 +35,13 @@ mongoose.connect(urlDB, {
 // Rutas
 
 app.use('/usuario', usuarioRoutes);
+app.use('/hospital', hospitalRoutes);
+app.use('/medico', medicoRoutes);
 app.use('/login', loginRoutes);
+app.use('/busqueda', busquedaRoutes);
+app.use('/upload', uploadRoutes);
+app.use('/img', imagenesRoutes);
+
 app.use('/', appRoutes);
 
 
